@@ -1,0 +1,59 @@
+<div class="row">
+				
+	<!--Lado Esquerdo-->
+	<div class="col-lg-3 mb-4">
+		<div class="busca_cursos">
+			<div class="dropdown">
+				<a class="btn btn-secondary btn-vermelho-conteporaneo dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Todos
+				</a>
+
+				<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#">Todos os curso</a></li>
+				<li><a class="dropdown-item" href="#">Por categoria</a></li>
+				<li><a class="dropdown-item" href="#">Mais acessados</a></li>
+				</ul>
+			</div>
+			
+			<div class="input-group mb-3 mt-3">
+				<input type="text" class="form-control alt altborder" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+				<button class="btn btn-outline-secondary icobusca" type="button" id="button-addon2">buscar</button>
+			</div>
+			
+			<div class="dropdown">
+				<a class="btn btn-outline-secondary dropdown-toggle w-100 altborder" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Ordernar por nome do curso
+				</a>
+
+				<ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="#">Todos os curso</a></li>
+				<li><a class="dropdown-item" href="#">Por categoria</a></li>
+				<li><a class="dropdown-item" href="#">Mais acessados</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!--Lado DIreito-->
+	<div class="col-lg-9">
+		<div class="row">
+			{{^lastaccessedcourses}}
+				<p class="m-2">Você não está matriculado em nenhum curso</p>
+			{{/lastaccessedcourses}}
+			{{#lastaccessedcourses}}	
+			<div class="col-lg-4 col-sm-6 mb-5 d-flex">
+				<div class="caixa pb-4">
+					{{< block_mycourses/coursecard }}
+						{{$url}}{{{url}}}{{/url}}
+						{{$coursename}}{{fullname}}{{/coursename}}
+						{{$courseshortname}}{{shortname}}{{/courseshortname}}
+						{{$courseimage}}{{{courseimage}}}{{/courseimage}}
+						{{$coursecategory}}{{{category}}}{{/coursecategory}}
+						{{$courseprogress}}{{percentage}}{{/courseprogress}}
+					{{/ block_mycourses/coursecard }}
+				</div>
+			</div>
+			{{/lastaccessedcourses}}
+		</div>
+	</div>
+</div>
